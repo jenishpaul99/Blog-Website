@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1 class='border-bottom mb-4'>Search Posts</h1>
+    <form action="#" method="get">     
+        <!-- {% csrf_token %} -->
+        {{myFilter.form}}
+        <button class='ml-2 btn btn-outline-info btn-sm' type="submit">Search</button>
+    </form>
+
+{% for i in post %}
+{{i.title}} ({{i.name}})<a href="{% url 'detail-profile' i.id %}"> Read</a><br>
+{% endfor %}
+
+{% endblock content%}
